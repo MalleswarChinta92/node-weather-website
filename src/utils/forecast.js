@@ -1,6 +1,6 @@
 const request = require('request')
 
-const forecast = (latitide, longitude, callback) => {
+const forecast = (latitide, longitude, place, callback) => {
     let url = `https://api.darksky.net/forecast/e6af5b5feb891b272e18f5e2fc0370a6/${latitide},${longitude}?units=si`
     request({url : url, json : true}, (error, response) => {
         if (error) {
@@ -11,7 +11,7 @@ const forecast = (latitide, longitude, callback) => {
             const currently = response.body.currently
             let temperature = currently.temperature
             let rainChance  = currently.precipProbability
-            callback(null, {temperature: temperature, rainChance: rainChance})
+            callback(null, {temperature, rainChance, place})
         }
     })  
 }

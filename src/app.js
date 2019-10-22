@@ -18,12 +18,7 @@ app.get('', (req, res) => {
         name: 'Weather Forecast'
     })
 })
-app.get('/help', (req, res) => {
-    res.render('help', {
-        title: 'Help',
-        name: 'Help Weather Forecast'
-    })
-})
+
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Weather App',
@@ -35,14 +30,12 @@ app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({error: 'you must send an address'})
     }
-    console.log(req.query.address)
 
     geocode(req.query.address, (error, {latitude, longitude, place} = {}) => {
-        console.log(latitude,longitude, place)
         if (error) {
             return res.send({error})
         } else {
-            forecast(latitude, longitude, (error, data) => {
+            forecast(latitude, longitude, place, (error, data) => {
                 if (error) return res.send({error})
                 return res.send(data)
             })

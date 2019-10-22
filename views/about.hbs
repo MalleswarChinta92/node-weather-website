@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html>
-    {{>header}}
-    <head></head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </head>
     <body>
-        <h1>{{name}}</h1>
+        <div class="container" style="margin-top:20px">
+            {{>header}}
+            <div class="jumbotron">
+                <h1 class="display-4">About me</h1>
+                <p class="lead">I am trying to master NodeJS from Udemy course of Andrew Mead</p>
+                <img src="/img/me.jpeg" class="img-responsive" height=300px>
+                <hr class="my-4">
+                <p>This is a website for lookup weather for a location. Go to home page</p>
+                <a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
+            </div>
+        </div>    
     </body>
 </html>
